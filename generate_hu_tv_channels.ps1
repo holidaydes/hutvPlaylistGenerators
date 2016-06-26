@@ -7,7 +7,7 @@ $urls = New-Object System.Collections.Generic.List[System.Object];
 $type = "1", "2", "3", "4", "5";
 $typeName = "720p","480p","360p","270p","180p";
 
-$path = "C:\Users\holiday\Desktop\";
+$path = "C:\";
 
 foreach($c in $channel) {
    $R = Invoke-WebRequest "$($baseUrl)$($c)";
