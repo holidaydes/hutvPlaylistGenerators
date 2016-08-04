@@ -1,4 +1,10 @@
-﻿# settings
+# settings
+# set the path where to save the *.m3u
+$path = "C:\";
+# set filename
+$fileName = "mtva";
+
+# variables (do not modify it)
 $baseUrl = "http://player.mediaklikk.hu/player/player-inside-full3.php?userid=mtva&streamid=";
 $baseUrlEnd = "&flashmajor=22&flashminor=0";
 $channel = "mtv1live", "mtv2live", "mtv4live", "dunalive", "dunaworldlive";
@@ -7,11 +13,12 @@ $urls = New-Object System.Collections.Generic.List[System.Object];
 $type = "1", "2", "3", "4", "5";
 $typeName = "720p","480p","360p","270p","180p";
 
-$path = "C:\";
+echo "Hungarian TV channel generator";
 
 foreach($c in $channel) {
-   $R = Invoke-WebRequest "$($baseUrl)$($c)";
-   while($R.Content.IndexOf('c40') -lt 0) {
+   $url = "$($baseUrl)$($c)$($baseUrlEnd)";
+   $R = Invoke-WebRequest "$($baseUrl)$($c)$($baseUrlEnd)" -UseBasicParsing;
+   while($R.Content.IndexOf('http://c') -lt 0) {
            $R = Invoke-WebRequest "$($baseUrl)$($c)$($baseUrlEnd)";
    }
    $start = $R.Content.IndexOf('http://c');
@@ -31,7 +38,7 @@ for($i = 0; $i -lt $urls.Count; $i++) {
 
 }
 
-$stream = [System.IO.StreamWriter] "$($path)mtv.m3u";
+$stream = [System.IO.StreamWriter] "$($path)$($fileName).m3u";
 
 $stream.WriteLine("#EXTM3U");
 
