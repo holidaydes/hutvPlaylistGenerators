@@ -7,8 +7,8 @@ echo $greeting
 fileName="mtva"
 
 #variables
-channels=("mtv1live" "mtv2live" "mtv4live" "dunalive" "dunaworldlive")
-channelsName=("M1" "M2" "M4" "Duna" "Duna World")
+channels=("mtv1live" "mtv2live" "mtv4live" "mtv5live" "dunalive" "dunaworldlive")
+channelsName=("M1" "M2" "M4" "M5" "Duna" "Duna World")
 #resolution is 5 -> {0..4}
 resolutionName=("720p" "480p" "360p" "270p" "180p")
 baseUrl="http://player.mediaklikk.hu/player/player-inside-full3.php?userid=mtva&streamid="

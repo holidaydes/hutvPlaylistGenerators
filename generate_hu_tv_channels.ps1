@@ -7,8 +7,8 @@ $fileName = "mtva";
 # variables (do not modify it)
 $baseUrl = "http://player.mediaklikk.hu/player/player-inside-full3.php?userid=mtva&streamid=";
 $baseUrlEnd = "&flashmajor=22&flashminor=0";
-$channel = "mtv1live", "mtv2live", "mtv4live", "dunalive", "dunaworldlive";
-$channelName = "M1", "M2", "M4", "Duna", "Duna World";
+$channel = "mtv1live", "mtv2live", "mtv4live", "mtv5live", "dunalive", "dunaworldlive";
+$channelName = "M1", "M2", "M4", "M5", "Duna", "Duna World";
 $urls = New-Object System.Collections.Generic.List[System.Object];
 $type = "1", "2", "3", "4", "5";
 $typeName = "720p","480p","360p","270p","180p";
