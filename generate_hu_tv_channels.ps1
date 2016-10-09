@@ -12,6 +12,7 @@ $channelName = "M1", "M2", "M4", "M5", "Duna", "Duna World";
 $urls = New-Object System.Collections.Generic.List[System.Object];
 $type = "1", "2", "3", "4", "5";
 $typeName = "720p","480p","360p","270p","180p";
+$typeM3u = "VID_1280x720_HUN","VID_854x480_HUN","VID_640x360_HUN","VID_480x270_HUN","VID_320x180_HUN";
 
 echo "Hungarian TV channel generator";
 
@@ -33,7 +34,7 @@ for($i = 0; $i -lt $urls.Count; $i++) {
 
     for($j = 0; $j -lt $type.length; $j++) {
         $fileContent.Add("#EXTINF:0,$($channelName[$i]) $($typeName[$j])");
-        $fileContent.Add("$($urls[$i])0$($type[$j]).m3u8");
+        $fileContent.Add("$($urls[$i])$($typeM3u[$j]).m3u8");
     }
 
 }
