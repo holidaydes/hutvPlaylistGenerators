@@ -12,7 +12,8 @@ $channelName = "M1", "M2", "M4", "M5", "Duna", "Duna World";
 $urls = New-Object System.Collections.Generic.List[System.Object];
 $type = "1", "2", "3", "4", "5";
 $typeName = "720p","480p","360p","270p","180p";
-$typeM3u = "VID_1280x720_HUN","VID_854x480_HUN","VID_640x360_HUN","VID_480x270_HUN","VID_320x180_HUN";
+# $typeM3u = "VID_1280x720_HUN","VID_854x480_HUN","VID_640x360_HUN","VID_480x270_HUN","VID_320x180_HUN";
+$typeM3u = "01","02","03","04","05";
 
 echo "Hungarian TV channel generator";
 
