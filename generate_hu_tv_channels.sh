@@ -14,7 +14,7 @@ resolutionName=("720p" "480p" "360p" "270p" "180p")
 #resolutionM3u=("VID_1280x720_HUN" "VID_854x480_HUN" "VID_640x360_HUN" "VID_480x270_HUN" "VID_320x180_HUN")
 resolutionM3u=("01" "02" "03" "04" "05")
 baseUrl="http://player.mediaklikk.hu/player/player-inside-full3.php?userid=mtva&streamid="
-urlEnd="&flashmajor=22&flashminor=0"
+urlEnd="&noflash=yes"
 urls=()
 links=()
 content="#EXTM3U\n"
@@ -29,10 +29,11 @@ done
 for url in ${urls[@]};
 do
   response=$(curl -s $url)
-  begin=$((`expr "$response" : '.*http:\/\/c'` - 8))
+  begin=$((`expr "$response" : '.*http:\\\/\\\/c'` - 10))
   end=`expr "$response" : '.*index\.m3u8'`
   length=$(($end - $begin - 10))
-  links+=(${response:$begin:$length})
+  temp=${response:$begin:$length}
+  links+=(${temp//\\/})
 done
 #write out to file
 var=0

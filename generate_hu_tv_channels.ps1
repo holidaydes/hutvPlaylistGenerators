@@ -6,7 +6,7 @@ $fileName = "mtva";
 
 # variables (do not modify it)
 $baseUrl = "http://player.mediaklikk.hu/player/player-inside-full3.php?userid=mtva&streamid=";
-$baseUrlEnd = "&flashmajor=22&flashminor=0";
+$baseUrlEnd = "&noflash=yes";
 $channel = "mtv1live", "mtv2live", "mtv4live", "mtv5live", "dunalive", "dunaworldlive";
 $channelName = "M1", "M2", "M4", "M5", "Duna", "Duna World";
 $urls = New-Object System.Collections.Generic.List[System.Object];
@@ -23,9 +23,9 @@ foreach($c in $channel) {
    while($R.Content.IndexOf('http://c') -lt 0) {
            $R = Invoke-WebRequest "$($baseUrl)$($c)$($baseUrlEnd)";
    }
-   $start = $R.Content.IndexOf('http://c');
+   $start = $R.Content.IndexOf('http:\/\/c');
    $length = $R.Content.IndexOf('index.m3u8') - $start;
-   $result = $R.Content.Substring($start, $length);
+   $result = $R.Content.Substring($start, $length).replace('\/','/');
    $urls.Add($result);
 }
 
