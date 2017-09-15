@@ -20,10 +20,10 @@ echo "Hungarian TV channel generator";
 foreach($c in $channel) {
    $url = "$($baseUrl)$($c)$($baseUrlEnd)";
    $R = Invoke-WebRequest "$($baseUrl)$($c)$($baseUrlEnd)" -UseBasicParsing;
-   while($R.Content.IndexOf('http://c') -lt 0) {
+   while($R.Content.IndexOf('https://c') -lt 0) {
            $R = Invoke-WebRequest "$($baseUrl)$($c)$($baseUrlEnd)";
    }
-   $start = $R.Content.IndexOf('http:\/\/c');
+   $start = $R.Content.IndexOf('https:\/\/c');
    $length = $R.Content.IndexOf('index.m3u8') - $start;
    $result = $R.Content.Substring($start, $length).replace('\/','/');
    $urls.Add($result);

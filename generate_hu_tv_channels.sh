@@ -29,7 +29,7 @@ done
 for url in ${urls[@]};
 do
   response=$(curl -s $url)
-  begin=$((`expr "$response" : '.*http:\\\/\\\/c'` - 10))
+  begin=$((`expr "$response" : '.*https:\\\/\\\/c'` - 10))
   end=`expr "$response" : '.*index\.m3u8'`
   length=$(($end - $begin - 10))
   temp=${response:$begin:$length}
